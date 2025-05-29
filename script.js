@@ -1,32 +1,21 @@
-body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 30px;
-}
+function playGame(playerChoice) {
+  const choices = ['rock', 'paper', 'scissors'];
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
 
-h1 {
-  color: #333;
-}
+  let result = '';
 
-.choices button {
-  font-size: 20px;
-  padding: 15px 25px;
-  margin: 10px;
-  cursor: pointer;
-  border-radius: 8px;
-  border: none;
-  background-color: #2196f3;
-  color: white;
-}
+  if (playerChoice === computerChoice) {
+    result = "It's a Tie!";
+  } else if (
+    (playerChoice === 'rock' && computerChoice === 'scissors') ||
+    (playerChoice === 'paper' && computerChoice === 'rock') ||
+    (playerChoice === 'scissors' && computerChoice === 'paper')
+  ) {
+    result = "You Win! 🎉";
+  } else {
+    result = "You Lose! 😢";
+  }
 
-.choices button:hover {
-  background-color: #0b7dda;
-}
-
-#result {
-  margin-top: 30px;
-  font-size: 24px;
-  color: #444;
+  document.getElementById('result').textContent =
+    `You chose ${playerChoice}, computer chose ${computerChoice}. ${result}`;
 }
