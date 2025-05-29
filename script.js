@@ -48,3 +48,9 @@ function playGame(playerChoice) {
   document.getElementById('score').textContent =
     `You: ${playerScore} | Computer: ${computerScore}`;
 }
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  document.getElementById('score').textContent = `You: 0 | Computer: 0`;
+  document.getElementById('result').textContent = "Make your move!";
+}
